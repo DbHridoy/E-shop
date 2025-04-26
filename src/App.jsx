@@ -6,7 +6,9 @@ function App() {
     <>
       <div className="flex flex-wrap items-center  ">
         {data.map((product) => {
-          return <Products product={product}key={product.unique_id}></Products>;
+          return (
+            <Products product={product} key={product.unique_id}></Products>
+          );
         })}
       </div>
     </>

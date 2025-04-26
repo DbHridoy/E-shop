@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import { useLocation } from "react-router";
+import { useNavigate } from "react-router";
 
 function Details(product) {
+  let navigate=useNavigate()
   let location = useLocation();
   product = location.state;
   let [imgSrc, setImgSrc] = useState(
@@ -12,7 +14,9 @@ function Details(product) {
   const handleError = () => {
     setImgSrc("src/images/testImage.jpg");
   };
-
+  const goToOrder = () => {
+    navigate("/ordernow", { state: product });
+  };
   return (
     <>
       <div className="flex">
@@ -27,11 +31,10 @@ function Details(product) {
             {product.short_desc}
           </p>
           <div className="bottom-1.5 absolute w-full">
-            <button className="w-full bg-green-600 font-bold rounded-xl p-2 text-white mb-0">
-              See Details
-            </button>{" "}
-            <br />
-            <button className="w-full bg-orange-700 font-bold rounded-xl p-2 text-white mb-0">
+            <button
+              onClick={goToOrder}
+              className="w-full bg-orange-700 font-bold rounded-xl p-2 text-white mb-0"
+            >
               Order Now
             </button>
           </div>
