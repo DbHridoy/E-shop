@@ -22,7 +22,7 @@ function Products({ product }) {
 
   return (
     <>
-      {console.log(product)}
+      {/* {console.log(product)} */}
       <div className="flex border-amber-950 items-center text-center justify-center w-1/4 bg-gray-300 ">
         <div className="h-1/2 ">
           <img
